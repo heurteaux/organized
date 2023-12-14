@@ -24,11 +24,11 @@ SRCS_TESTS	:=	$(shell find $(SRC_DIRS) -name "*.c" \
 
 OBJS	=	$(SRCS:.c=.o)
 
-CFLAGS	= -Werror -Wall -Wextra
+CFLAGS	= -Wall -Wextra -g3
 
 $(NAME):	$(OBJS)
 	make -C lib/my
-	gcc -o $(NAME) main.c $(OBJS) ./libshell/libshell.a ./lib/libmy.a
+	gcc -o $(NAME) main.c $(OBJS) ./libshell/libshell.a ./lib/libmy.a -g3
 
 all: $(NAME)
 

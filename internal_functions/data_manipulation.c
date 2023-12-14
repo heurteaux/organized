@@ -5,13 +5,16 @@
 ** add.c
 */
 
+#include <stdbool.h>
+#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include "../lib/my.h"
 #include "../libshell/shell.h"
 #include "display.h"
-#include "data_info.h"
+#include "sorting.h"
 #include "data_check.h"
+#include "data_info.h"
 
 int add(void *data, char **args)
 {
@@ -37,7 +40,7 @@ int add(void *data, char **args)
     return 0;
 }
 
-int disp(void *data, __attribute__((unused))char **args)
+int disp(void *data, __attribute__((unused)) char **args)
 {
     linked_list_node_t *temp = *((linked_list_node_t **) data);
 
@@ -95,8 +98,21 @@ int del(void *data, char **args)
     return 0;
 }
 
-int sort(__attribute__((unused))void *data, __attribute__((unused))char **args)
+int sort(void *data, char **args)
 {
-    my_putchar('\n');
+    bool is_reversed = false;
+
+    for (int i = get_args_len(args) - 1; i >= 0; i--) {
+        if (args[i + 1] != NULL)
+            is_reversed = (my_strcmp(args[i + 1], "-r") == 0);
+        if (my_strcmp(args[i], "TYPE") == 0)
+            sort_by_type(data, is_reversed);
+        if (my_strcmp(args[i], "NAME") == 0)
+            sort_by_name(data, is_reversed);
+        if (my_strcmp(args[i], "ID") == 0)
+            sort_by_id(data, is_reversed);
+        if (my_strcmp(args[i], "-r") == 0)
+        return 1;
+    }
     return 0;
 }
