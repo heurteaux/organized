@@ -139,8 +139,10 @@ int sort(void *data, char **args)
     for (int i = get_args_len(args) - 1; i >= 0; i--) {
         if (args[i + 1] != NULL)
             is_reversed = (my_strcmp(args[i + 1], "-r") == 0);
-        if (is_valid_arg(args[i], data, is_reversed))
+        if (is_valid_arg(args[i], data, is_reversed)) {
+            is_reversed = false;
             continue;
+        }
         return 84;
     }
     return 0;
