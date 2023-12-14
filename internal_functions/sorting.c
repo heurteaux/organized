@@ -10,6 +10,7 @@
 #include <stdio.h>
 #include "../lib/my.h"
 #include "../data_structure/struct.h"
+#include "reverse.h"
 
 static int get_list_size(linked_list_node_t *head)
 {
@@ -46,13 +47,15 @@ static void swap_by_type(linked_list_node_t **head)
     }
 }
 
-void sort_by_type(void *data, __attribute__((unused)) bool is_reversed)
+void sort_by_type(void *data, bool is_reversed)
 {
     linked_list_node_t **head = (linked_list_node_t **) data;
 
     for (int i = 0; i <= get_list_size(*head); i++) {
         swap_by_type(head);
     }
+    if (is_reversed)
+        reverse(head);
 }
 
 static void swap_by_name(linked_list_node_t **head)
@@ -67,13 +70,15 @@ static void swap_by_name(linked_list_node_t **head)
     }
 }
 
-void sort_by_name(void *data, __attribute__((unused)) bool is_reversed)
+void sort_by_name(void *data, bool is_reversed)
 {
     linked_list_node_t **head = (linked_list_node_t **) data;
 
     for (int i = 0; i <= get_list_size(*head); i++) {
         swap_by_name(head);
     }
+    if (is_reversed)
+        reverse(head);
 }
 
 static void swap_by_id(linked_list_node_t **head)
@@ -88,11 +93,13 @@ static void swap_by_id(linked_list_node_t **head)
     }
 }
 
-void sort_by_id(void *data, __attribute__((unused)) bool is_reversed)
+void sort_by_id(void *data, bool is_reversed)
 {
     linked_list_node_t **head = (linked_list_node_t **) data;
 
     for (int i = 0; i <= get_list_size(*head); i++) {
         swap_by_id(head);
     }
+    if (is_reversed)
+        reverse(head);
 }
