@@ -13,5 +13,5 @@ int main(void)
 {
     linked_list_node_t *head = NULL;
 
-    workshop_shell(&head);
+    return workshop_shell(&head);
 }
