@@ -6,7 +6,7 @@
 */
 
 #pragma once
-#include "../data_structure/struct.h"
+#include "../../../data_structure/list_node.h"
 
 void display_on_add(linked_list_node_t *node);
 

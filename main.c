@@ -5,9 +5,9 @@
 ** main.c
 */
 
-#include "libshell/shell.h"
 #include <stdio.h>
-#include "data_structure/struct.h"
+#include "libshell/shell.h"
+#include "data_structure/list_node.h"
 
 int main(void)
 {

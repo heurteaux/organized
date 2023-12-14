@@ -5,10 +5,9 @@
 ** sorting_functions_rev.c
 */
 
-#include "../data_structure/struct.h"
 #include <stdlib.h>
+#include "../../../lib/my.h"
 #include "sorting.h"
-#include "../lib/my.h"
 
 void swap_by_id_reversed(linked_list_node_t **head)
 {

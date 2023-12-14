@@ -5,8 +5,8 @@
 ** data_check.c
 */
 
-#include "../lib/my.h"
 #include <malloc.h>
+#include "../../lib/my.h"
 
 int check_type(char *type)
 {
@@ -19,8 +19,11 @@ int check_type(char *type)
     possible_types[4] = "WIRE";
     possible_types[5] = NULL;
     for (int i = 0; possible_types[i] != NULL; i++) {
-        if (my_strcmp(type, possible_types[i]) == 0)
+        if (my_strcmp(type, possible_types[i]) == 0) {
+            free(possible_types);
             return 0;
+        }
     }
+    free(possible_types);
     return 1;
 }

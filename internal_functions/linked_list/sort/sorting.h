@@ -7,7 +7,7 @@
 
 #pragma once
 #include <stdbool.h>
-#include "../data_structure/struct.h"
+#include "../../../data_structure/list_node.h"
 
 void sort_by_type(void *data, bool is_reversed);
 

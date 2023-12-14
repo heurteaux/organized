@@ -6,8 +6,7 @@
 */
 
 #include "display.h"
-#include "../data_structure/struct.h"
-#include "../lib/my.h"
+#include "../../../lib/my.h"
 
 void display_on_add(linked_list_node_t *node)
 {
