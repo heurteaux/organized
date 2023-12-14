@@ -48,15 +48,23 @@ int disp(void *data, __attribute__((unused))char **args)
     return 0;
 }
 
+static void delete_head_element(linked_list_node_t **head)
+{
+    linked_list_node_t *temp = *head;
+    linked_list_node_t *to_delete = temp;
+
+    display_on_delete(to_delete);
+    *head = temp->next;
+    free(to_delete);
+}
+
 static int delete_item(linked_list_node_t **head, int id)
 {
     linked_list_node_t *temp = *head;
     linked_list_node_t *to_delete;
 
     if (temp->id == id) {
-        to_delete = temp;
-        *head = temp->next;
-        free(to_delete);
+        delete_head_element(head);
         return 0;
     }
     while (temp->next != NULL) {
