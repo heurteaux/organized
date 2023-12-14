@@ -24,7 +24,7 @@ SRCS_TESTS	:=	$(shell find $(SRC_DIRS) -name "*.c" \
 
 OBJS	=	$(SRCS:.c=.o)
 
-CFLAGS	= -Wall -Wextra
+CFLAGS	= -Werror -Wall -Wextra
 
 $(NAME):	$(OBJS)
 	make -C lib/my

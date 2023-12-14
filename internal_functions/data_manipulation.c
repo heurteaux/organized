@@ -84,10 +84,10 @@ int del(void *data, char **args)
 {
     linked_list_node_t **head = (linked_list_node_t **) data;
 
-    if (*head == NULL) {
-        return 1;
-    }
     for (int i = 0; args[i] != NULL; i++) {
+        if (*head == NULL) {
+            return 1;
+        }
         if (delete_item(head, my_getnbr(args[i])) == 1) {
             return 1;
         }
