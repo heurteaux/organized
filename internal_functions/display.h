@@ -11,3 +11,5 @@
 void display_on_add(linked_list_node_t *node);
 
 void print_node(linked_list_node_t *node);
+
+void display_on_delete(linked_list_node_t *node);

@@ -62,6 +62,7 @@ static int delete_item(linked_list_node_t **head, int id)
     while (temp->next != NULL) {
         if ((temp->next)->id == id) {
             to_delete = temp->next;
+            display_on_delete(to_delete);
             temp->next = temp->next->next;
             free(to_delete);
             return 0;
@@ -88,5 +89,6 @@ int del(void *data, char **args)
 
 int sort(__attribute__((unused))void *data, __attribute__((unused))char **args)
 {
-    return 1;
+    my_putchar('\n');
+    return 0;
 }
