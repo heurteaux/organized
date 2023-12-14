@@ -24,7 +24,7 @@ int add(void *data, char **args)
     for (int i = 0; i < get_args_len(args); i += 2) {
         new_node = malloc(sizeof(linked_list_node_t));
         if (check_type(args[i]) == 1 || args[i + 1] == NULL)
-            return 1;
+            return 84;
         if (*head == NULL) {
             new_node->id = 0;
             new_node->next = NULL;
@@ -89,10 +89,10 @@ int del(void *data, char **args)
 
     for (int i = 0; args[i] != NULL; i++) {
         if (*head == NULL) {
-            return 1;
+            return 84;
         }
         if (delete_item(head, my_getnbr(args[i])) == 1) {
-            return 1;
+            return 84;
         }
     }
     return 0;
@@ -112,7 +112,7 @@ int sort(void *data, char **args)
         if (my_strcmp(args[i], "ID") == 0)
             sort_by_id(data, is_reversed);
         if (my_strcmp(args[i], "-r") == 0)
-        return 1;
+        return 84;
     }
     return 0;
 }
