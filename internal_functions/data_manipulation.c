@@ -97,7 +97,7 @@ int del(void *data, char **args)
     if (get_args_len(args) < 1)
         return 84;
     for (int i = 0; args[i] != NULL; i++) {
-        if (*head == NULL) {
+        if (*head == NULL || my_getnbr(args[i]) == (-1)) {
             return 84;
         }
         if (delete_item(head, my_getnbr(args[i])) == 1) {

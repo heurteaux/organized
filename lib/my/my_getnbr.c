@@ -62,6 +62,8 @@ int my_getnbr(char *str)
             chck_int(&number);
             return number;
         }
+        if (!is_digit(str[i]))
+            return -1;
         if (str[i] == 45) {
             min_cnt++;
         }
