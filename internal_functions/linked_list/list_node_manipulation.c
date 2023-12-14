@@ -16,6 +16,8 @@ void delete_head_element(linked_list_node_t **head)
 
     display_on_delete(to_delete);
     *head = temp->next;
+    free(to_delete->name);
+    free(to_delete->type);
     free(to_delete);
 }
 
@@ -33,6 +35,8 @@ int delete_item(linked_list_node_t **head, int id)
             to_delete = temp->next;
             display_on_delete(to_delete);
             temp->next = temp->next->next;
+            free(to_delete->name);
+            free(to_delete->type);
             free(to_delete);
             return 0;
         }
