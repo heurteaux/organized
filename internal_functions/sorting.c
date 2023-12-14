@@ -39,7 +39,7 @@ static void swap_by_type(linked_list_node_t **head)
     linked_list_node_t *temp = *head;
 
     while (temp->next != NULL) {
-        if (my_strcmp(temp->type, (temp->next)->type) > 0) {
+        if (my_strcmp(temp->type, (temp->next)->type) < 0) {
             swap_elements(temp, temp->next);
         }
         temp = temp->next;
@@ -60,7 +60,7 @@ static void swap_by_name(linked_list_node_t **head)
     linked_list_node_t *temp = *head;
 
     while (temp->next != NULL) {
-        if (my_strcmp(temp->name, (temp->next)->name) > 0) {
+        if (my_strcmp(temp->name, (temp->next)->name) < 0) {
             swap_elements(temp, temp->next);
         }
         temp = temp->next;
