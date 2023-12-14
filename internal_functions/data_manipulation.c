@@ -18,11 +18,14 @@
 static void setup_new_node(linked_list_node_t *new_node,
     linked_list_node_t **head, int i, char **args)
 {
+    static int max_id = 0;
+
     if (*head == NULL) {
         new_node->id = 0;
         new_node->next = NULL;
     } else {
-        new_node->id = (*head)->id + 1;
+        max_id++;
+        new_node->id = max_id;
         new_node->next = *head;
     }
     new_node->type = my_strdup(args[i]);
