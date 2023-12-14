@@ -20,7 +20,7 @@ int add(void *data, char **args)
 
     for (int i = 0; i < get_args_len(args); i += 2) {
         new_node = malloc(sizeof(linked_list_node_t));
-        if (check_type(args[i]) == 1)
+        if (check_type(args[i]) == 1 || args[i + 1] == NULL)
             return 1;
         if (*head == NULL) {
             new_node->id = 0;
