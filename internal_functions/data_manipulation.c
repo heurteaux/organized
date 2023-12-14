@@ -10,8 +10,8 @@
 #include "../lib/my.h"
 #include "../libshell/shell.h"
 #include "display.h"
-#include "../data_structure/struct.h"
 #include "data_info.h"
+#include "data_check.h"
 
 int add(void *data, char **args)
 {
@@ -20,6 +20,8 @@ int add(void *data, char **args)
 
     for (int i = 0; i < get_args_len(args); i += 2) {
         new_node = malloc(sizeof(linked_list_node_t));
+        if (check_type(args[i]) == 1)
+            return 1;
         if (*head == NULL) {
             new_node->id = 0;
             new_node->next = NULL;
@@ -30,11 +32,12 @@ int add(void *data, char **args)
         new_node->type = my_strdup(args[i]);
         new_node->name = my_strdup(args[i + 1]);
         *head = new_node;
+        display_on_add(new_node);
     }
     return 0;
 }
 
-int disp(void *data, char **args)
+int disp(void *data, __attribute__((unused))char **args)
 {
     linked_list_node_t *temp = *((linked_list_node_t **) data);
 
@@ -83,6 +86,7 @@ int del(void *data, char **args)
     return 0;
 }
 
-int sort(void *data, char **args)
+int sort(__attribute__((unused))void *data, __attribute__((unused))char **args)
 {
+    return 1;
 }

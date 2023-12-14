@@ -38,6 +38,8 @@ clean:
 fclean: clean
 	rm -f $(NAME) $(TEST_NAME)
 	rm -f ./criterion_tests_bin
+	rm -f ./lib/libmy.a
+	rm -f ./lib/my/libmy.a
 
 re: fclean all
 
